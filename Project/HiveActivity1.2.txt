@@ -1,0 +1,151 @@
+hive> CREATE TABLE EPISODEV (name STRING,line STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' TBLPROPERTIES ("skip.header.line.count"="2");
+OK
+Time taken: 0.172 seconds
+hive> LOAD DATA LOCAL INPATH '/episodeV_dialouges.txt' INTO TABLE EPISODEV;
+Loading data to table default.EPISODEv
+OK
+Time taken: 0.172 seconds
+hive> SELECT name,COUNT(name) AS no_of_lines from EPISODEV GROUP BY name ORDER BY no_of_lines;
+Query ID = root_20220418054435_b8d99486-91b9-4a91-a168-e62e26d6cdd8
+Total jobs = 2
+Launching Job 1 out of 2
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1648698881140_0017, Tracking URL = http://eae518029046:8088/proxy/application_1648698881140_0017/
+Kill Command = /usr/local/hadoop/bin/mapred job  -kill job_1648698881140_0017
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2022-04-18 05:44:41,971 Stage-1 map = 0%,  reduce = 0%
+2022-04-18 05:44:47,110 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 2.98 sec
+2022-04-18 05:44:53,293 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 2.98 sec
+MapReduce Total cumulative CPU time: 6 seconds 310 msec
+Ended Job = job_1648698881140_0017
+Launching Job 2 out of 2
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1648698881140_0018, Tracking URL = http://eae518029046:8088/proxy/application_1648698881140_0018/
+Kill Command = /usr/local/hadoop/bin/mapred job  -kill job_1648698881140_0018
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+2022-04-18 05:45:09,042 Stage-2 map = 0%,  reduce = 0%
+2022-04-18 05:45:14,267 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 2.5 sec
+2022-04-18 05:45:20,478 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 6.19 sec
+MapReduce Total cumulative CPU time: 6 seconds 190 msec
+Ended Job = job_1648698881140_0018
+MapReduce Jobs Launched:
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 6.31 sec   HDFS Read: 197522 HDFS Write: 3049 SUCCESS
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 6.19 sec   HDFS Read: 10555 HDFS Write: 2658 SUCCESS
+Total MapReduce CPU Time Spent: 12 seconds 500 msec
+OK
+PILOTS  1
+PILOT   1
+HOBBIE  1
+FIRST CONTROLLER        1
+ASSISTANT OFFICER       1
+SECOND THREEPIO 1
+WOMAN CONTROLLER        1
+IMPERIAL SOLDIER        1
+SECOND CONTROLLER       1
+HEAD CONTROLLER 1
+REBEL FIGHTER   1
+REBEL CAPTAIN   1
+STRANGE VOICE   1
+LUKE'S VOICE    2
+MEDICAL DROID   2
+OFFICER CASS    2
+WOMAN   2
+WINGMAN'S VOICE 2
+WINGMAN 2
+ASTRO-OFFICER   2
+BASE VOICE      2
+VOICE OVER DEATH STAR INTERCOM  2
+BERU    2
+CHIEF PILOT     2
+COMMUNICATIONS OFFICER  2
+TROOPER VOICE   2
+CONTROL OFFICER 2
+TRACKING OFFICER        2
+DEAK    2
+TECHNICIAN      2
+FIRST OFFICER   2
+SENIOR CONTROLLER       2
+HAN'S VOICE     2
+RED TEN'S VOICE 2
+RED SEVEN       2
+RED NINE'S VOICE        2
+RED NINE        2
+RED LEADER'S VOICE      2
+RED ELEVEN      2
+REBEL OFFICER   2
+PORKINS 2
+LIEUTENANT      2
+ANNOUNCER       3
+TRENCH OFFICER  3
+SECOND OFFICER  3
+MAN'S VOICE     3
+DERLIN  3
+CONTROLLER      3
+CAPTAIN 3
+GANTRY OFFICER  4
+GOLD TWO        4
+BOBA FETT       4
+CAMIE   4
+CHIEF   4
+DACK    4
+JANSON  4
+WILLARD 4
+FIXER   4
+OZZEL   5
+EMPEROR 5
+NEEDA   5
+MASSASSI INTERCOM VOICE 6
+IMPERIAL OFFICER        6
+SECOND TROOPER  6
+COMMANDER       6
+ZEV     6
+VOICE   6
+BARTENDER       6
+DECK OFFICER    7
+VEERS   7
+TAGGE   8
+MOTTI   8
+HUMAN   8
+JABBA   12
+GREEDO  12
+FIRST TROOPER   12
+DODONNA 12
+DEATH STAR INTERCOM VOICE       12
+AUNT BERU       12
+RIEEKAN 13
+RED TEN 14
+GOLD FIVE       14
+INTERCOM VOICE  14
+BEN'S VOICE     16
+CREATURE        23
+PIETT   23
+OFFICER 23
+GOLD LEADER     28
+YODA    36
+WEDGE   36
+TROOPER 38
+OWEN    50
+TARKIN  56
+LANDO   61
+BIGGS   68
+RED LEADER      72
+VADER   138
+BEN     163
+LEIA    228
+THREEPIO        330
+HAN     486
+LUKE    634
+Time taken: 47.394 seconds, Fetched: 102 row(s)
+hive>
